@@ -1,116 +1,123 @@
-let ratios = [2, 3, 4, 5];
-let types = ['areas', 'lines']
-let countString = localStorage.getItem('trialCount')
-let currentCount = JSON.parse(countString)
-
-// set path for the next page
-let current_type = location.href.split("/").slice(-1)[0].split('.')[0]
-let button = document.getElementById("trial-next")
-
-// select a random ratio
-const typeCount = currentCount[current_type]
-let curRatio = getRandomAndRemove(typeCount)
-currentCount[current_type] = typeCount
+let totalImages = 0;
+let currentImage = 1;
+let table_nums = [[12.2, 47.0], [27.8, 81.8], [96.4, 40.5], [51.9, 26.0], [83.6, 48.5], [38.6, 58.6], [4.6, 3.4], [55.7, 67.9]]
 
 
-// button.setAttribute("onclick", "location.href='" + types[Math.floor(Math.random() * 2)] + ".html';")
 
+// Load the SVG file names from the text file
+fetch("js/svg_paths.txt")
+    .then(response => response.text())
+    .then(data => {
+        // Split the text file contents into an array of image names
+        imageNames = data.trim().split("\n");
+        shuffleArray(imageNames)
+        totalImages = imageNames.length;
+        random_indices = generateIntegers()
 
-// udpate count
-updateCount(current_type)
+        // Generate the HTML code for each image container
+        let imageContainers = "";
+        let j = 0
+        let table_i = 0
+        for (let i = 0; i < totalImages; i++) {
+            imageContainers += `<div id="image-container-${j + 1}" class="image-container">
+                              <object data="${imageNames[i]}" type="image/svg+xml"></object>
+                           </div>`;
+            j += 1;
 
-// renders the current page on loaded
-renderTrial(current_type);
+            // randomly insert tables into the trials
+            if (random_indices.includes(i)) {
+                imageContainers += `
+                <div id="image-container-${j + 1}" class="image-container">
+                    <table style="width:12cm;height:6cm;">
+                        <tr>
+                            <th scope="col" style="font-weight: bold;">Encoding</th>
+                            <th scope="col" style="font-weight: bold;">Value</th>
+                        </tr>
 
-// renders the next page
-renderPages()
+                        <tr>
+                            <th scope="row">A</th>
+                            <th>${(table_nums[table_i])[0]}</th>
+                        </tr>
 
-// maybe switch the postion of the pairs
-maybeSwitchElements(document.getElementById('left-svg'), document.getElementById('right-svg'))
-
-
-// function that renders different types of trials
-function renderTrial(type) {
-    switch (type) {
-        case 'lines':
-            //renders the line according to the ratio
-            let right_line = document.getElementById("right-line")
-            new_length = 300 - ratios[curRatio] * 60
-            right_line.setAttribute("y2", new_length.toString())
-
-            // change the speech text of the new area
-            let text = document.getElementById("line-text")
-            let new_text = "A line with a length of " + (300 - new_length).toString() + " pixels."
-            text.innerHTML = new_text
-            
-            break;
-        
-        case 'areas':
-            let base_area = 65
-
-            // renders the new area according to the ratio
-            let right_area = document.getElementById("right-area")
-            new_radius = Math.pow(ratios[curRatio], 1 / 2) * base_area
-            right_area.setAttribute("r", new_radius.toString().substring(0, 8))
-
-            break;
-
-        case 'angles':
-            let base_angle = 18
-
-
-    }
-}
-
-function renderPages() {
-    let avTypes = []
-    let i = 0
-    while (i < types.length) {
-        if (currentCount[types[i]].length != 0) {
-            
-            avTypes.push(types[i])
+                        <tr>
+                            <th scope="row">B</th>
+                            <th>${(table_nums[table_i])[1]}</th>
+                        </tr>
+                    </table>
+                </div>
+                `;
+                table_i += 1
+                j += 1
+            }
         }
-        i = i + 1
+
+
+        // Add the image containers to the DOM
+        document.getElementById("image-container").innerHTML = imageContainers;
+        document.getElementById(`image-container-${currentImage}`).style.display = "block";
+
+        totalImages += 8
+    });
+
+function showNextImage() {
+    // Hide the current image container
+    document.getElementById(`image-container-${currentImage}`).style.display = "none";
+
+    // Increment the current image counter
+    currentImage++;
+
+    console.log(currentImage + "/" + totalImages)
+
+    // If we have reached the end, redirect to the completion page
+    if (currentImage == totalImages) {
+        document.getElementById('trial-button').setAttribute("onclick", "window.location.href = 'completion.html';")
     }
 
-    // console.log(indices)
+    // Show the next image container
+    document.getElementById(`image-container-${currentImage}`).style.display = "block";
 
-    // if all types are done, exit
-    if (avTypes.length == 0) {
-        button.setAttribute("onclick", "location.href='completion.html';")
-    } 
+    // Update the progress bar
+    const progress = (currentImage / totalImages) * 100;
+    document.querySelector('.progress').style.width = `${progress}%`;
+}
 
-    else {
-        button.setAttribute("onclick", "location.href='" + avTypes[Math.floor(Math.random() * avTypes.length)] + ".html';")
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+
+function generateIntegers() {
+    const integers = [];
+    while (integers.length < 8) {
+        const integer = Math.floor(Math.random() * 56);
+        if (integer > 0 && !integers.includes(integer)) {
+            integers.push(integer);
+        }
+    }
+    return integers;
+}
+
+function generate_pairs(ratios) {
+    let pairs = []
+
+    for (let i = 0; i < ratios.length; i++) {
+        let larger_num = Math.random() * 100
+        let smaller_num = larger_num * ratios[i]
+        larger_num = larger_num.toFixed(1)
+        smaller_num = smaller_num.toFixed(1)
+
+        let coin_flip = Math.floor(Math.random() * 1)
+        if (coin_flip == 0) {
+            let tmp = larger_num
+            larger_num = smaller_num
+            smaller_num = tmp
+        }
+        pairs.push([larger_num, smaller_num])
     }
 
-
-
-    // if all trials are completed redirect to a completion page
-    // if not all the trials are completed, then randomize the remaining trials
+     return pairs
 }
-
-function updateCount(type) {
-    var newCount = JSON.stringify(currentCount)
-    localStorage.setItem('trialCount', newCount) 
-
-    // var newCount = JSON.stringify(currentCount)
-    // localStorage.setItem('trialCount', newCount)
-}
-
-function getRandomAndRemove(arr) {
-  const randomIndex = Math.floor(Math.random() * arr.length); // Generate a random index within the array
-  const removedElement = arr.splice(randomIndex, 1); // Remove the element at the random index
-  return removedElement[0]; // Return the removed element
-}
-
-function maybeSwitchElements(element1, element2) {
-  if (Math.random() < 0.5) {
-    const parent1 = element1.parentNode;
-    const sibling1 = element1.nextSibling === element2 ? element1 : element1.nextSibling;
-    element2.parentNode.insertBefore(element1, element2);
-    parent1.insertBefore(element2, sibling1);
-  }
-}
-
-

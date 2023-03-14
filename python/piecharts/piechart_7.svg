@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg baseProfile="full" height="6cm" version="1.1" width="12cm" xmlns="http://www.w3.org/2000/svg"
+    xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs />
+    <path d="M226,113 L136.89934758116323,67.60095002604534 A100,100 0 1,1 296.95437070321077,183.46614277872277 Z"
+        fill="url(#pattern-1)" stroke="black" stroke-width="3" />
+    <path d="M226,113 L296.95437070321077,183.46614277872277 A100,100 0 0,1 136.89934758116323,67.60095002604527 Z"
+        fill="url(#pattern-2)" stroke="black" stroke-width="3" />
+    <pattern height="10" id="pattern-1" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse" width="10">
+        <line stroke="black" stroke-width="3" x1="0" x2="0" y1="0" y2="10" />
+    </pattern>
+    <pattern height="13" id="pattern-2" patternTransform="rotate(-45 0 0)" patternUnits="userSpaceOnUse" width="13">
+        <circle cx="5" cy="5" fill="black" r="5" stroke="none" />
+    </pattern>
+    <text x="350" y="140">
+       B 
+    </text>
+    <text x="90" y="140">
+       A 
+    </text>
+</svg>
