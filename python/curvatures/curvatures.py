@@ -4,11 +4,11 @@ import random
 from math import sin, cos
 from svgwrite import cm, mm
 
-RATIOS = [0.26, 0.34, 0.42, 0.5, 0.58, 0.66, 0.74, 0.82]
-BASE_CURVE = 0.3
+RATIOS = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]
+BASE_CURVE = 1
 
 
-def curves(name, ratio):
+def curves(name, ratio, index):
     # draw canvas
     img = svgwrite.Drawing(filename=name, size = (12*cm, 6*cm))
 
@@ -18,7 +18,7 @@ def curves(name, ratio):
 
     # calculate for test curve
     t_start, t_end = (7.5*37.6, 3*37.6), (10.5*37.6, 3*37.6)
-    t_cx1, t_cy1, t_cx2, t_cy2 = calculate_control(t_start, t_end, BASE_CURVE / ratio)
+    t_cx1, t_cy1, t_cx2, t_cy2 = calculate_control(t_start, t_end, BASE_CURVE * ratio)
 
     base_curve = img.path(d=f"M {b_start[0]},{b_start[1]} C {b_cx1},{b_cy1} {b_cx2},{b_cy2} {b_end[0]},{b_end[1]}", stroke='black', stroke_width=3, fill='none')
     test_curve = img.path(d=f"M {t_start[0]},{t_start[1]} C {t_cx1},{t_cy1} {t_cx2},{t_cy2} {t_end[0]},{t_end[1]}", stroke='black', stroke_width=3, fill='none')
@@ -33,6 +33,9 @@ def curves(name, ratio):
     # add markers
     marker_a = img.text('A', insert=(5.8 * 37.6, 5.8 * 37.6))
     marker_b = img.text('B', insert=(11.8 * 37.6, 5.8 * 37.6))
+
+    # add labels 
+    img.add(img.text('C'+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
     
 
     img.add(marker_a)
@@ -53,9 +56,9 @@ def calculate_control(start, end, curvature):
 
 
 if __name__ == '__main__':
-    # index = 0
+    index = 0
 
-    # for ratio in RATIOS:
-    #     curves(('curvatures_' + str(index) + '.svg'), ratio)
-    #     index += 1
-    curves("example.svg", 0.4)
+    for ratio in RATIOS:
+        curves(('curvatures_' + str(index) + '.svg'), ratio, index)
+        index += 1
+    # curves("example.svg", 0.4)

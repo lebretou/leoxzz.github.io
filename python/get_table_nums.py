@@ -1,5 +1,5 @@
 import random
-RATIOS = [0.26, 0.34, 0.42, 0.5, 0.58, 0.66, 0.74, 0.82]
+RATIOS = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]
 
 def generate_pairs(ratios):
     pairs = []

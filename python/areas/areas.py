@@ -3,11 +3,11 @@ import math
 import random
 from svgwrite import cm, mm
 
-RATIOS = [0.26, 0.34, 0.42, 0.5, 0.58, 0.66, 0.74, 0.82]
-BASE_RADIUS = 1.5
+RATIOS = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]
+BASE_RADIUS = 2.8
 
 
-def areas(name, ratio):
+def areas(name, ratio, index):
     # draw canvas
     img = svgwrite.Drawing(filename=name, size = (12*cm, 6*cm))
 
@@ -15,7 +15,7 @@ def areas(name, ratio):
     circle_a_center = (3, 3)
     circle_b_center = (9, 3)
     circle_a_radius = BASE_RADIUS
-    circle_b_radius = circle_a_radius/math.sqrt(ratio)
+    circle_b_radius = circle_a_radius*math.sqrt(ratio)
 
     pattern = img.pattern(id='pattern', patternUnits='userSpaceOnUse',
                                         size=(10,10), patternTransform="rotate(45 0 0)")
@@ -37,6 +37,9 @@ def areas(name, ratio):
     marker_a = img.text('A', insert=(5.8 * 37.6, 5.8 * 37.6))
     marker_b = img.text('B', insert=(11.8 * 37.6, 5.8 * 37.6))
 
+    # add labels 
+    img.add(img.text('A'+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
+
     img.add(pattern)
     img.add(circle_a)
     img.add(circle_b)
@@ -46,8 +49,11 @@ def areas(name, ratio):
     
 
 if __name__ == '__main__':
-    areas("example.svg", 0.4)
+    index = 0
 
+    for ratio in RATIOS:
+        areas(('areas_' + str(index) + '.svg'), ratio, index)
+        index += 1
 
    
        

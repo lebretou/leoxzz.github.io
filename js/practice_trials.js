@@ -59,7 +59,7 @@ fetch("js/example_paths.txt")
     });
 
 function showNextImage() {
-    console.log(currentImage)
+
     // Hide the current image container
     document.getElementById(`image-container-${currentImage}`).style.display = "none";
 
@@ -79,6 +79,40 @@ function showNextImage() {
     // Update the progress bar
     const progress = (currentImage / totalImages) * 100;
     document.querySelector('.progress').style.width = `${progress}%`;
+
+    if (currentImage > 1) {
+        document.getElementById(`p-button`).disabled = false;
+    }
+}
+
+function showLastImage() {
+    // Hide the current image container
+    document.getElementById(`image-container-${currentImage}`).style.display = "none";
+
+    // Increment the current image counter
+    currentImage--;
+
+    console.log(currentImage + "/" + totalImages)
+
+    // If we have reached the end, redirect to the completion page
+    if (currentImage == totalImages) {
+        document.getElementById('trial-button').setAttribute("onclick", "window.location.href = 'trans.html';")
+    }
+
+    // Show the next image container
+    document.getElementById(`image-container-${currentImage}`).style.display = "block";
+
+    if (currentImage != totalImages) {
+        document.getElementById('trial-button').setAttribute("onclick", "showNextImage()")
+    }
+
+    // Update the progress bar
+    const progress = (currentImage / totalImages) * 100;
+    document.querySelector('.progress').style.width = `${progress}%`;
+
+    if (currentImage == 1) {
+        document.getElementById(`p-button`).disabled = true;
+    }
 }
 
 

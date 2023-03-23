@@ -1,6 +1,6 @@
 let totalImages = 0;
 let currentImage = 1;
-let table_nums = [[12.2, 47.0], [27.8, 81.8], [96.4, 40.5], [51.9, 26.0], [83.6, 48.5], [38.6, 58.6], [4.6, 3.4], [55.7, 67.9]]
+let table_nums = [[24.3, 30.3],[12.7, 63.6], [23.8, 79.2], [18.9, 7.6], [86.1, 43.1], [28.9, 48.2],[64.6, 92.3]]
 
 
 
@@ -10,9 +10,10 @@ fetch("js/svg_paths.txt")
     .then(data => {
         // Split the text file contents into an array of image names
         imageNames = data.trim().split("\n");
-        shuffleArray(imageNames)
+        // shuffleArray(imageNames)
         totalImages = imageNames.length;
-        random_indices = generateIntegers()
+        random_indices = [0, 6, 12, 18, 24, 30, 36]
+        block_indices = [5, 11, 17, 23, 29, 35, 41]
 
         // Generate the HTML code for each image container
         let imageContainers = "";
@@ -49,6 +50,18 @@ fetch("js/svg_paths.txt")
                 table_i += 1
                 j += 1
             }
+
+            if (block_indices.includes(i)){
+                imageContainers += 
+                `
+                <div id="image-container-${j + 1}" class="image-container">
+                    <h1>Block ${(i + 1) / 6} End.</h1>
+                    <p> Continue when you are ready for the next 7 trials </p>
+                </div>
+                `;
+                j += 1;
+            }
+
         }
 
 
@@ -56,7 +69,7 @@ fetch("js/svg_paths.txt")
         document.getElementById("image-container").innerHTML = imageContainers;
         document.getElementById(`image-container-${currentImage}`).style.display = "block";
 
-        totalImages += 8
+        totalImages += 14
     });
 
 function showNextImage() {
@@ -79,45 +92,38 @@ function showNextImage() {
     // Update the progress bar
     const progress = (currentImage / totalImages) * 100;
     document.querySelector('.progress').style.width = `${progress}%`;
+
+    if (currentImage > 1) {
+        document.getElementById(`p-button`).disabled = false;
+    }
 }
 
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
+function showLastImage() {
+    // Hide the current image container
+    document.getElementById(`image-container-${currentImage}`).style.display = "none";
 
+    // Increment the current image counter
+    currentImage--;
 
-function generateIntegers() {
-    const integers = [];
-    while (integers.length < 8) {
-        const integer = Math.floor(Math.random() * 56);
-        if (integer > 0 && !integers.includes(integer)) {
-            integers.push(integer);
-        }
-    }
-    return integers;
-}
+    console.log(currentImage + "/" + totalImages)
 
-function generate_pairs(ratios) {
-    let pairs = []
-
-    for (let i = 0; i < ratios.length; i++) {
-        let larger_num = Math.random() * 100
-        let smaller_num = larger_num * ratios[i]
-        larger_num = larger_num.toFixed(1)
-        smaller_num = smaller_num.toFixed(1)
-
-        let coin_flip = Math.floor(Math.random() * 1)
-        if (coin_flip == 0) {
-            let tmp = larger_num
-            larger_num = smaller_num
-            smaller_num = tmp
-        }
-        pairs.push([larger_num, smaller_num])
+    // If we have reached the end, redirect to the completion page
+    if (currentImage == totalImages) {
+        document.getElementById('trial-button').setAttribute("onclick", "window.location.href = 'completion.html';")
     }
 
-     return pairs
+    // Show the next image container
+    document.getElementById(`image-container-${currentImage}`).style.display = "block";
+
+    if (currentImage != totalImages) {
+        document.getElementById('trial-button').setAttribute("onclick", "showNextImage()")
+    }
+
+    // Update the progress bar
+    const progress = (currentImage / totalImages) * 100;
+    document.querySelector('.progress').style.width = `${progress}%`;
+
+    if (currentImage == 1) {
+        document.getElementById(`p-button`).disabled = true;
+    }
 }
