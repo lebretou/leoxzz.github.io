@@ -31,19 +31,10 @@ fetch("js/svg_paths.txt")
                 <div id="image-container-${j + 1}" class="image-container">
                     <table style="width:12cm;height:6cm;">
                         <tr>
-                            <th scope="col" style="font-weight: bold;">Encoding</th>
-                            <th scope="col" style="font-weight: bold;">Value</th>
+                            <th scope="col" style="font-weight: bold;">${(table_nums[table_i])[0]}</th>
+                            <th scope="col" style="font-weight: bold;">${(table_nums[table_i])[1]}</th>
                         </tr>
 
-                        <tr>
-                            <th scope="row">A</th>
-                            <th>${(table_nums[table_i])[0]}</th>
-                        </tr>
-
-                        <tr>
-                            <th scope="row">B</th>
-                            <th>${(table_nums[table_i])[1]}</th>
-                        </tr>
                     </table>
                 </div>
                 `;

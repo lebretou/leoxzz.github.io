@@ -55,8 +55,9 @@ table, th, td {
   border-collapse: collapse;
 }
 
-th {
+th, td {
   font-weight: lighter;
+  border: 3px solid black;
 }
 
 .example-svg{

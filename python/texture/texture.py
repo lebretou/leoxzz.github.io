@@ -60,19 +60,19 @@ def textures(name, ratio, index):
 
 
     # add markers
-    img.add(img.text('A', insert=(3 * 37.6, 5.8 * 37.6)))
-    img.add(img.text('B', insert=(9 * 37.6, 5.8 * 37.6)))
+    # img.add(img.text('A', insert=(3 * 37.6, 5.8 * 37.6)))
+    # img.add(img.text('B', insert=(9 * 37.6, 5.8 * 37.6)))
 
     # add labels 
-    img.add(img.text('T'+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
+    # img.add(img.text('T'+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
 
     img.save()
 
 
-index = 0
+# index = 0
 
-for ratio in RATIOS:
-    textures(('textures_' + str(index) + '.svg'), ratio, index)
-    index += 1
+# for ratio in RATIOS:
+#     textures(('textures_' + str(index) + '.svg'), ratio, index)
+#     index += 1
 
-# textures("example.svg", 0.5, 0)
+textures("example.svg", 0.5, 0)

@@ -7,7 +7,7 @@ MAX_LENGTH = 6
 BASE_LENGTH = 4.4
 RATIOS = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]
 
-def lines(name, ratio):
+def lines(name, ratio, index):
     # create canvas
     img = svgwrite.Drawing(filename=name, size = (12*cm, 6*cm))
 
@@ -38,16 +38,16 @@ def lines(name, ratio):
     rotate_angle_b = random.randint(-90, 90)
     
     # add markers
-    marker_a = img.text('A', insert=(5.8 * 37.6, 5.8 * 37.6))
-    marker_b = img.text('B', insert=(11.8 * 37.6, 5.8 * 37.6))
+    # marker_a = img.text('A', insert=(5.8 * 37.6, 5.8 * 37.6))
+    # marker_b = img.text('B', insert=(11.8 * 37.6, 5.8 * 37.6))
 
     # add labels 
-    img.add(img.text('L'+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
+    # img.add(img.text('L'+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
 
     img.add(line_a)
     img.add(line_b)
-    img.add(marker_a)
-    img.add(marker_b)
+    # img.add(marker_a)
+    # img.add(marker_b)
     img.save()
 
 # length and center in the unit of cm
@@ -61,10 +61,10 @@ def line_coordinates(length, center):
 
 if __name__ == '__main__':
     
-    index = 0
+    # index = 0
 
-    for ratio in RATIOS:
-        lines(('lines_' + str(index) + '.svg'), ratio)
-        index += 1
+    # for ratio in RATIOS:
+    #     lines(('lines_' + str(index) + '.svg'), ratio)
+    #     index += 1
 
-    # lines("example.svg", 0.5)
+    lines("example.svg", 0.5, 0)

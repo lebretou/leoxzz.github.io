@@ -34,26 +34,28 @@ def areas(name, ratio, index):
     circle_b = img.circle(center = (circle_b_center[0] * cm, circle_b_center[1] * cm), r=circle_b_radius * cm, stroke='black', stroke_width=3, fill='url(#pattern)')
 
     # add markers
-    marker_a = img.text('A', insert=(5.8 * 37.6, 5.8 * 37.6))
-    marker_b = img.text('B', insert=(11.8 * 37.6, 5.8 * 37.6))
+    # marker_a = img.text('A', insert=(5.8 * 37.6, 5.8 * 37.6))
+    # marker_b = img.text('B', insert=(11.8 * 37.6, 5.8 * 37.6))
 
     # add labels 
-    img.add(img.text('A'+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
+    # img.add(img.text('A'+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
 
     img.add(pattern)
     img.add(circle_a)
     img.add(circle_b)
-    img.add(marker_a)
-    img.add(marker_b)
+    # img.add(marker_a)
+    # img.add(marker_b)
     img.save()
     
 
 if __name__ == '__main__':
-    index = 0
+    # index = 0
 
-    for ratio in RATIOS:
-        areas(('areas_' + str(index) + '.svg'), ratio, index)
-        index += 1
+    # for ratio in RATIOS:
+    #     areas(('areas_' + str(index) + '.svg'), ratio, index)
+    #     index += 1
+
+    areas("example.svg", 0.5, 0)
 
    
        

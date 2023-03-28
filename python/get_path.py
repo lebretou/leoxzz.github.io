@@ -43,4 +43,6 @@ with open('svg_paths.txt', "w") as file:
     for path in paths:
         file.write(path + "\n")
 
+
+
 file.close()

@@ -21,6 +21,13 @@ def positions(name, ratio, index):
     num1 = 80
     num2 = num1 * ratio
 
+    coin_flip = random.randint(0, 1) 
+
+    if coin_flip == 0:
+        tmp = num1
+        num1 = num2
+        num2 = tmp
+
     scaled_a = 3.0 - (num1 * 3.0 / 100)
     scaled_b = 3.0 - (num2 * 3.0 / 100)
 
@@ -29,11 +36,11 @@ def positions(name, ratio, index):
     img.add(img.circle(center=(START_B* cm, (scaled_b + random_offset_a) *cm), r=0.1*cm,fill="black"))
 
     # add markers
-    img.add(img.text('A', insert=(3.5 * 37.6, (4 + random_offset_a) * 37.6)))
-    img.add(img.text('B', insert=(6.5 * 37.6, (4 + random_offset_a) * 37.6)))
+    # img.add(img.text('A', insert=(3.5 * 37.6, (4 + random_offset_a) * 37.6)))
+    # img.add(img.text('B', insert=(6.5 * 37.6, (4 + random_offset_a) * 37.6)))
 
     # add labels 
-    # img.add(img.text("PA"+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
+    img.add(img.text("PA"+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
 
     img.save()
 
@@ -41,10 +48,10 @@ def positions(name, ratio, index):
 
 
 if __name__ == '__main__':
-    # index = 0
+    index = 0
 
-    # for ratio in RATIOS:
-    #     positions(('position_aligned_' + str(index) + '.svg'), ratio, index)
-    #     index += 1
+    for ratio in RATIOS:
+        positions(('position_aligned_' + str(index) + '.svg'), ratio, index)
+        index += 1
 
-    positions('example.svg', 0.5, 0)
+    # positions('example.svg', 0.5, 0)

@@ -17,10 +17,12 @@
         <p>
             In encoding type "positions along a common scale", numerical values are represented by the location of
             points along a <b>common bounded
-                axis or interval</b>. In our example, we used a rectangular box as the common axis. Numerical values are
-            encoded by the <b>vertical axis</b>. In other words, the longer the distance from the point to the <b>bottom
-                edge</b> of the rectangular box the larger the value.
-            You will inspect a pair of points on a common bounded vertical axis. An example of a pair of "position along
+                axis or interval</b>. In our example, you will see two points within a common rectangular box. We are using the edges of the rectangle to represent an XY coordinate system. The
+            horizontal (X) axis runs along the bottom edge of the box, while the vertical axis runs along the left edge
+            of the box. Your task
+            is to compare the vertical (y) positions of these two points, ignoring their horizontal (x) positions.
+            Please focus on determining which point is higher or lower in the box. An example of a pair of "position
+            along
             a common scale"
             encodings:
 
@@ -48,10 +50,11 @@
             In encoding type "Positions along identical, non-aligned scales", numerical values are represented by the
             locations of
             points along <b>identical bounded
-                axes or intervals</b>. In our example, we used rectangular boxes as the axes. Numerical values are
-            encoded by the <b>vertical axis</b>. In other words, the longer the distance from the point to the <b>bottom
-                edges</b> of the rectangular boxes the larger the value.
-            You will inspect a pair of points on identical non-aligned vertical axes. An example of a pair of position
+                axes or intervals</b>. In our example, you will see two points within two identical but non-aligned rectangular boxes. We are using the edges of the rectangles to represent an XY coordinate system. The
+            horizontal (X) axes runs along the bottom edges of the boxes, while the vertical axes runs along the left edges
+            of the boxes. Your task
+            is to compare the relative vertical (y) positions of these two points within its respective box, ignoring their horizontal (x) positions.
+            Please focus on determining which point is higher or lower in the box. An example of a pair of position
             encodings:
         </p>
         <div class="example-svg">
@@ -110,7 +113,8 @@
             </svg>
         </div>
         <p>
-            In this example, "texture B" is smaller than "texture A" in density for it appears to be less crowded. "texture B" is 50% the density of "texture A".
+            In this example, "texture B" is smaller than "texture A" in density for it appears to be less crowded.
+            "texture B" is 50% the density of "texture A".
         </p>
 
         <hr>
@@ -125,19 +129,10 @@
         <div class="example-svg">
             <table style="width:12cm;height:6cm;margin:0 auto; margin-bottom: 20px;">
                 <tr>
-                    <th scope="col" style="font-weight: bold;">Encoding</th>
-                    <th scope="col" style="font-weight: bold;">Value</th>
+                    <th scope="col" style="font-weight: bold;">20</th>
+                    <th scope="col" style="font-weight: bold;">40</th>
                 </tr>
 
-                <tr>
-                    <th scope="row">A</th>
-                    <th>24</th>
-                </tr>
-
-                <tr>
-                    <th scope="row">B</th>
-                    <th>48</th>
-                </tr>
             </table>
         </div>
         <p>

@@ -12,13 +12,22 @@ def curves(name, ratio, index):
     # draw canvas
     img = svgwrite.Drawing(filename=name, size = (12*cm, 6*cm))
 
+    curve1 = BASE_CURVE
+    curve2 = BASE_CURVE * ratio
+
+    coin_flip = random.randint(0, 1)
+    if coin_flip == 0:
+        tmp = curve1
+        curve1 = curve2
+        curve2 = tmp
+
     # calculate points for the base curve
     b_start, b_end = (1.5*37.6, 3*37.6), (4.5*37.6, 3*37.6)
-    b_cx1, b_cy1, b_cx2, b_cy2 = calculate_control(b_start, b_end, BASE_CURVE)
+    b_cx1, b_cy1, b_cx2, b_cy2 = calculate_control(b_start, b_end, curve1)
 
     # calculate for test curve
     t_start, t_end = (7.5*37.6, 3*37.6), (10.5*37.6, 3*37.6)
-    t_cx1, t_cy1, t_cx2, t_cy2 = calculate_control(t_start, t_end, BASE_CURVE * ratio)
+    t_cx1, t_cy1, t_cx2, t_cy2 = calculate_control(t_start, t_end, curve2)
 
     base_curve = img.path(d=f"M {b_start[0]},{b_start[1]} C {b_cx1},{b_cy1} {b_cx2},{b_cy2} {b_end[0]},{b_end[1]}", stroke='black', stroke_width=3, fill='none')
     test_curve = img.path(d=f"M {t_start[0]},{t_start[1]} C {t_cx1},{t_cy1} {t_cx2},{t_cy2} {t_end[0]},{t_end[1]}", stroke='black', stroke_width=3, fill='none')
@@ -31,15 +40,15 @@ def curves(name, ratio, index):
     test_curve.rotate(rotate_angle_b, center=(9*37.6, 3*37.6))
 
     # add markers
-    marker_a = img.text('A', insert=(5.8 * 37.6, 5.8 * 37.6))
-    marker_b = img.text('B', insert=(11.8 * 37.6, 5.8 * 37.6))
+    # marker_a = img.text('A', insert=(5.8 * 37.6, 5.8 * 37.6))
+    # marker_b = img.text('B', insert=(11.8 * 37.6, 5.8 * 37.6))
 
     # add labels 
-    img.add(img.text('C'+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
+    # img.add(img.text('C'+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
     
 
-    img.add(marker_a)
-    img.add(marker_b)
+    # img.add(marker_a)
+    # img.add(marker_b)
     img.add(base_curve)
     img.add(test_curve)
     
@@ -56,9 +65,9 @@ def calculate_control(start, end, curvature):
 
 
 if __name__ == '__main__':
-    index = 0
+    # index = 0
 
-    for ratio in RATIOS:
-        curves(('curvatures_' + str(index) + '.svg'), ratio, index)
-        index += 1
-    # curves("example.svg", 0.4)
+    # for ratio in RATIOS:
+    #     curves(('curvatures_' + str(index) + '.svg'), ratio, index)
+    #     index += 1
+    curves("example.svg", 0.5, 0)

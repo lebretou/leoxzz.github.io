@@ -5,7 +5,7 @@ from math import sin, cos
 from svgwrite import cm, mm
 
 
-RATIOS = [0.26, 0.34, 0.42, 0.5, 0.58, 0.66, 0.74, 0.82]
+RATIOS = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]
 START_A = 2.0
 START_B = 8.0
 
@@ -26,6 +26,13 @@ def positions(name, ratio, index):
     num1 = 80
     num2 = num1 * ratio
 
+    coin_flip = random.randint(0, 1) 
+
+    if coin_flip == 0:
+        tmp = num1
+        num1 = num2
+        num2 = tmp
+
     scaled_a = 3.0 - (num1 * 3.0 / 100)
     scaled_b = 3.0 - (num2 * 3.0 / 100)
 
@@ -34,11 +41,11 @@ def positions(name, ratio, index):
     img.add(img.circle(center=(START_B* cm, (scaled_b + random_offset_b) *cm), r=0.1*cm,fill="black"))
 
     # add markers
-    img.add(img.text('A', insert=(2 * 37.6, (4 + random_offset_a) * 37.6)))
-    img.add(img.text('B', insert=(8 * 37.6, (4 + random_offset_b) * 37.6)))
+    # img.add(img.text('A', insert=(2 * 37.6, (4 + random_offset_a) * 37.6)))
+    # img.add(img.text('B', insert=(8 * 37.6, (4 + random_offset_b) * 37.6)))
 
     # add labels 
-    # img.add(img.text("PU"+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
+    img.add(img.text("PU"+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
 
 
     img.save()
@@ -49,10 +56,10 @@ def generate_numbers(x):
     return num1, num2
 
 if __name__ == '__main__':
-    # index = 0
+    index = 0
 
-    # for ratio in RATIOS:
-    #     positions(('position_unaligned_' + str(index) + '.svg'), ratio)
-    #     index += 1
+    for ratio in RATIOS:
+        positions(('position_unaligned_' + str(index) + '.svg'), ratio, index)
+        index += 1
 
-    positions("example.svg", 0.5, 0)
+    # positions("example.svg", 0.5, 0)
