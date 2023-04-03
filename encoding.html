@@ -14,78 +14,40 @@
         <h3>
             Positions along a common scale
         </h3>
-        <p>
-            In encoding type "positions along a common scale", numerical values are represented by the location of
-            points along a <b>common bounded
-                axis or interval</b>. In our example, you will see two points within a common rectangular box. We are using the edges of the rectangle to represent an XY coordinate system. The
-            horizontal (X) axis runs along the bottom edge of the box, while the vertical axis runs along the left edge
-            of the box. Your task
-            is to compare the vertical (y) positions of these two points, ignoring their horizontal (x) positions.
-            Please focus on determining which point is higher or lower in the box. An example of a pair of "position
-            along
-            a common scale"
-            encodings:
-
-        </p>
         <div class="example-svg">
+
             <svg baseProfile="full" height="6cm" version="1.1" width="12cm" xmlns="http://www.w3.org/2000/svg"
                 xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <defs />
                 <rect fill="white" height="3cm" stroke="black" stroke-width="3" width="6cm" x="3cm"
-                    y="1.8367243538295774cm" />
-                <circle cx="3.5cm" cy="2.4367243538295775cm" fill="black" r="0.1cm" />
-                <circle cx="6.5cm" cy="3.6367243538295773cm" fill="black" r="0.1cm" /><text x="131.6"
-                    y="219.46083570399213">A</text><text x="244.4" y="219.46083570399213">B</text></svg>
+                    y="0.15919136599131578cm" />
+                <circle cx="3.5cm" cy="1.9591913659913158cm" fill="black" r="0.1cm" />
+                <circle cx="6.5cm" cy="0.7591913659913159cm" fill="black" r="0.1cm" /></svg>
         </div>
-        <p>
-            In this example, "Position B" is smaller than "Position A" since it is closer in distance to the bottom
-            edge of the rectangular box. "Position B" is 50% of "Position A" in the value of position.
-        </p>
         <hr>
 
         <h3>
             Positions along identical, non-aligned scales
         </h3>
-        <p>
-            In encoding type "Positions along identical, non-aligned scales", numerical values are represented by the
-            locations of
-            points along <b>identical bounded
-                axes or intervals</b>. In our example, you will see two points within two identical but non-aligned rectangular boxes. We are using the edges of the rectangles to represent an XY coordinate system. The
-            horizontal (X) axes runs along the bottom edges of the boxes, while the vertical axes runs along the left edges
-            of the boxes. Your task
-            is to compare the relative vertical (y) positions of these two points within its respective box, ignoring their horizontal (x) positions.
-            Please focus on determining which point is higher or lower in the box. An example of a pair of position
-            encodings:
-        </p>
         <div class="example-svg">
+
             <svg baseProfile="full" height="6cm" version="1.1" width="12cm" xmlns="http://www.w3.org/2000/svg"
                 xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <defs />
                 <rect fill="white" height="3cm" stroke="black" stroke-width="3" width="3cm" x="1.5cm"
-                    y="0.7902250148099332cm" />
+                    y="1.8308554057165671cm" />
                 <rect fill="white" height="3cm" stroke="black" stroke-width="3" width="3cm" x="7.5cm"
-                    y="1.7390364670119025cm" />
-                <circle cx="2.0cm" cy="1.3902250148099333cm" fill="black" r="0.1cm" />
-                <circle cx="8.0cm" cy="3.5390364670119023cm" fill="black" r="0.1cm" /><text x="75.2"
-                    y="180.1124605568535">A</text><text x="300.8" y="215.78777115964755">B</text></svg>
+                    y="0.9910903807382994cm" />
+                <circle cx="2.0cm" cy="3.6308554057165674cm" fill="black" r="0.1cm" />
+                <circle cx="8.0cm" cy="1.5910903807382994cm" fill="black" r="0.1cm" /></svg>
         </div>
-        <p>
-            In this example, "Position B" is smaller than "Position A" since it is closer in distance to the bottom
-            edge of the rectangular box. "Position B" is 50% of "Position A" in the value of position.
-        </p>
         <hr>
         <h3>
             Textures
         </h3>
-        <p>
-            In encoding type "textures", numerical values are represented by <b>density</b> of a cross-hatching pattern.
-            In our example,
-            numerical values are represented by <b>how closely spaced the lines in the pattern are to each other. </b>
-            In other words,<b> the more crowded</b> a pattern appear to be the higher the density. An example of a pair
-            of "texture" encodings:
 
-        </p>
         <div class="example-svg">
+
             <svg baseProfile="full" height="6cm" version="1.1" width="12cm" xmlns="http://www.w3.org/2000/svg"
                 xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <defs />
@@ -93,39 +55,29 @@
                     width="10">
                     <line stroke="black" stroke-width="1" x1="0" x2="0" y1="0" y2="10" />
                 </pattern>
-                <rect fill="url(#pattern)" height="4cm" stroke="black" stroke-width="2" width="4cm" x="1cm" y="1cm" />
+                <rect fill="url(#pattern)" height="4cm" stroke="black" stroke-width="3" width="4cm" x="1cm" y="1cm" />
                 <pattern height="10" id="pattern-2" patternTransform="rotate(-45 0 0)" patternUnits="userSpaceOnUse"
                     width="10">
                     <line stroke="black" stroke-width="1" x1="0" x2="0" y1="0" y2="10" />
                 </pattern>
-                <rect fill="url(#pattern-2)" height="4cm" stroke="black" stroke-width="2" width="4cm" x="1cm" y="1cm" />
+                <rect fill="url(#pattern-2)" height="4cm" stroke="black" stroke-width="3" width="4cm" x="1cm" y="1cm" />
                 <pattern height="10" id="pattern-3" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse"
                     width="20.0">
                     <line stroke="black" stroke-width="1" x1="0" x2="0" y1="0" y2="10" />
                 </pattern>
-                <rect fill="url(#pattern-3)" height="4cm" stroke="black" stroke-width="2" width="4cm" x="7cm" y="1cm" />
+                <rect fill="url(#pattern-3)" height="4cm" stroke="black" stroke-width="3" width="4cm" x="7cm" y="1cm" />
                 <pattern height="10" id="pattern-4" patternTransform="rotate(-45 0 0)" patternUnits="userSpaceOnUse"
                     width="20.0">
                     <line stroke="black" stroke-width="1" x1="0" x2="0" y1="0" y2="10" />
                 </pattern>
-                <rect fill="url(#pattern-4)" height="4cm" stroke="black" stroke-width="2" width="4cm" x="7cm" y="1cm" />
-                <text x="112.80000000000001" y="218.08">A</text><text x="338.40000000000003" y="218.08">B</text>
+                <rect fill="url(#pattern-4)" height="4cm" stroke="black" stroke-width="3" width="4cm" x="7cm" y="1cm" />
             </svg>
         </div>
-        <p>
-            In this example, "texture B" is smaller than "texture A" in density for it appears to be less crowded.
-            "texture B" is 50% the density of "texture A".
-        </p>
 
         <hr>
         <h3>
             Tabular
         </h3>
-        <p>
-            In encoding type "Tabular", numerical values are <b>directly presented in tables</b>. You will directly
-            compare and estimate what percentage the smaller value is of the larger in the pair.
-            An example of encoding tabular:
-        </p>
         <div class="example-svg">
             <table style="width:12cm;height:6cm;margin:0 auto; margin-bottom: 20px;">
                 <tr>
@@ -135,9 +87,6 @@
 
             </table>
         </div>
-        <p>
-            In this example, "encoding A" is smaller than "encoding B" in value. "Encoding A" is 50% of "encoding B".
-        </p>
         <hr>
         <div style="margin-bottom: 5%;">
             <b>Ask the study administrator about any question or confusion you have about the above explanations before

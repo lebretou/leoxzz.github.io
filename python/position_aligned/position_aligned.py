@@ -40,7 +40,7 @@ def positions(name, ratio, index):
     # img.add(img.text('B', insert=(6.5 * 37.6, (4 + random_offset_a) * 37.6)))
 
     # add labels 
-    img.add(img.text("PA"+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
+    # img.add(img.text("PA"+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
 
     img.save()
 
@@ -48,10 +48,10 @@ def positions(name, ratio, index):
 
 
 if __name__ == '__main__':
-    index = 0
+    # index = 0
 
-    for ratio in RATIOS:
-        positions(('position_aligned_' + str(index) + '.svg'), ratio, index)
-        index += 1
+    # for ratio in RATIOS:
+    #     positions(('position_aligned_' + str(index) + '.svg'), ratio, index)
+    #     index += 1
 
-    # positions('example.svg', 0.5, 0)
+    positions('instruction.svg', 0.5, 0)

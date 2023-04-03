@@ -55,7 +55,7 @@ if __name__ == '__main__':
     #     areas(('areas_' + str(index) + '.svg'), ratio, index)
     #     index += 1
 
-    areas("example.svg", 0.5, 0)
+    areas("instruction.svg", 0.5, 0)
 
    
        

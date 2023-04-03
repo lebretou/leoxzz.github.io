@@ -45,7 +45,7 @@ def positions(name, ratio, index):
     # img.add(img.text('B', insert=(8 * 37.6, (4 + random_offset_b) * 37.6)))
 
     # add labels 
-    img.add(img.text("PU"+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
+    # img.add(img.text("PU"+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
 
 
     img.save()
@@ -56,10 +56,10 @@ def generate_numbers(x):
     return num1, num2
 
 if __name__ == '__main__':
-    index = 0
+    # index = 0
 
-    for ratio in RATIOS:
-        positions(('position_unaligned_' + str(index) + '.svg'), ratio, index)
-        index += 1
+    # for ratio in RATIOS:
+    #     positions(('position_unaligned_' + str(index) + '.svg'), ratio, index)
+    #     index += 1
 
-    # positions("example.svg", 0.5, 0)
+    positions("instruction.svg", 0.5, 0)

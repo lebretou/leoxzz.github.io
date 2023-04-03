@@ -75,4 +75,4 @@ def textures(name, ratio, index):
 #     textures(('textures_' + str(index) + '.svg'), ratio, index)
 #     index += 1
 
-textures("example.svg", 0.5, 0)
+textures("instruction.svg", 0.5, 0)

@@ -70,4 +70,4 @@ if __name__ == '__main__':
     # for ratio in RATIOS:
     #     curves(('curvatures_' + str(index) + '.svg'), ratio, index)
     #     index += 1
-    curves("example.svg", 0.5, 0)
+    curves("instruction.svg", 0.5, 0)

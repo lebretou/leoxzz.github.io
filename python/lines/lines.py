@@ -67,4 +67,4 @@ if __name__ == '__main__':
     #     lines(('lines_' + str(index) + '.svg'), ratio)
     #     index += 1
 
-    lines("example.svg", 0.5, 0)
+    lines("instruction.svg", 0.5, 0)
