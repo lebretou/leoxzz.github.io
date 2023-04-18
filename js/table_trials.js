@@ -1,13 +1,13 @@
-let totalImages = 7;
+let totalImages = 6;
 let currentImage = 1;
-let table_nums = [[23.8, 79.2], [46.5, 18.6], [86.1, 43.1], [28.9, 48.2],[64.6, 92.3],[24.3, 30.3],[12.7, 63.6]]
+let table_nums = [[52.5, 95.4], [33.9, 75.4], [24.2, 6.1], [36.7, 56.4], [67.3, 89.7], [53.0, 18.6]]
 let ordering = [3, 2, 0, 4, 6, 5, 1]
 
-const sortedList = table_nums.sort((a, b) => {
-    const indexA = table_nums.indexOf(a);
-    const indexB = table_nums.indexOf(b);
-    return ordering.indexOf(indexA) - ordering.indexOf(indexB);
-  });
+// const sortedList = table_nums.sort((a, b) => {
+//     const indexA = table_nums.indexOf(a);
+//     const indexB = table_nums.indexOf(b);
+//     return ordering.indexOf(indexA) - ordering.indexOf(indexB);
+//   });
 
 // Generate the HTML code for each image container
 let imageContainers = "";
@@ -17,8 +17,8 @@ for (let i = 0; i < totalImages; i++) {
     <div id="image-container-${i + 1}" class="image-container">
         <table style="width:12cm;height:6cm;">
             <tr>
-                <th scope="col" style="font-weight: bold;">${(sortedList[i])[0]}</th>
-                <th scope="col" style="font-weight: bold;">${(sortedList[i])[1]}</th>
+                <th scope="col" style="font-weight: bold;">${(table_nums[i])[0].toFixed(1)}</th>
+                <th scope="col" style="font-weight: bold;">${(table_nums[i])[1].toFixed(1)}</th>
             </tr>
 
         </table>
