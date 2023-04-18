@@ -3,7 +3,7 @@ import math
 import random
 from svgwrite import cm, mm
 
-RATIOS = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]
+RATIOS = [0.25, 0.35, 0.45, 0.55, 0.65, 0.75]
 
 def textures(name, ratio, index):
     # draw canvas
@@ -64,15 +64,15 @@ def textures(name, ratio, index):
     # img.add(img.text('B', insert=(9 * 37.6, 5.8 * 37.6)))
 
     # add labels 
-    # img.add(img.text('T'+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
+    img.add(img.text('T'+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
 
     img.save()
 
 
-# index = 0
+index = 0
 
-# for ratio in RATIOS:
-#     textures(('textures_' + str(index) + '.svg'), ratio, index)
-#     index += 1
+for ratio in RATIOS:
+    textures(('textures_' + str(index) + '.svg'), ratio, index)
+    index += 1
 
-textures("instruction.svg", 0.5, 0)
+# textures("instruction.svg", 0.5, 0)

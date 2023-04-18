@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>table</title>
+    <title>Trials</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <table>
-        <tr>
-            <th scope="col">Pattern</th>
-            <th scope="col">Value</th>
-        </tr>
+    <!-- HTML code for the progress bar -->
+<div class="progress-bar">
+    <div class="progress" style="width: 0%"></div>
+  </div>
 
-        <tr>
-            <th scope="row">A</th>
-            <th>4</th>
-        </tr>
-
-        <tr>
-            <th scope="row">B</th>
-            <th>5</th>
-        </tr>
-    </table>
+    <div class="center-screen">
+        <div id="image-container"></div>
+        <button id="p-button" onclick="showLastImage()" disabled>Previous</button>
+        <button id="trial-button" onclick="showNextImage()">Next trial</button>
+    </div>
+    <script src="js/table_trials.js"></script>
 </body>
+
 </html>

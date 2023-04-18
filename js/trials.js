@@ -1,6 +1,6 @@
 let totalImages = 0;
 let currentImage = 1;
-let table_nums = [[24.3, 30.3],[12.7, 63.6], [23.8, 79.2], [18.9, 7.6], [86.1, 43.1], [28.9, 48.2],[64.6, 92.3]]
+let table_nums = [[24.3, 30.3],[12.7, 63.6], [23.8, 79.2], [18.9, 7.6], [86.1, 43.1], [28.9, 48.2]]
 
 
 
@@ -13,7 +13,7 @@ fetch("js/svg_paths.txt")
         // shuffleArray(imageNames)
         totalImages = imageNames.length;
         random_indices = [0, 6, 12, 18, 24, 30, 36]
-        block_indices = [5, 11, 17, 23, 29, 35, 41]
+        block_indices = [5, 11, 17, 23, 29, 35]
 
         // Generate the HTML code for each image container
         let imageContainers = "";
@@ -25,29 +25,29 @@ fetch("js/svg_paths.txt")
                            </div>`;
             j += 1;
 
-            // randomly insert tables into the trials
-            if (random_indices.includes(i)) {
-                imageContainers += `
-                <div id="image-container-${j + 1}" class="image-container">
-                    <table style="width:12cm;height:6cm;">
-                        <tr>
-                            <th scope="col" style="font-weight: bold;">${(table_nums[table_i])[0]}</th>
-                            <th scope="col" style="font-weight: bold;">${(table_nums[table_i])[1]}</th>
-                        </tr>
+            // // randomly insert tables into the trials
+            // if (random_indices.includes(i)) {
+            //     imageContainers += `
+            //     <div id="image-container-${j + 1}" class="image-container">
+            //         <table style="width:12cm;height:6cm;">
+            //             <tr>
+            //                 <th scope="col" style="font-weight: bold;">${(table_nums[table_i])[0]}</th>
+            //                 <th scope="col" style="font-weight: bold;">${(table_nums[table_i])[1]}</th>
+            //             </tr>
 
-                    </table>
-                </div>
-                `;
-                table_i += 1
-                j += 1
-            }
+            //         </table>
+            //     </div>
+            //     `;
+            //     table_i += 1
+            //     j += 1
+            // }
 
             if (block_indices.includes(i)){
                 imageContainers += 
                 `
                 <div id="image-container-${j + 1}" class="image-container">
                     <h1>Block ${(i + 1) / 6} End.</h1>
-                    <p> Continue when you are ready for the next 7 trials </p>
+                    <p> Continue when you are ready for the next 6 trials </p>
                 </div>
                 `;
                 j += 1;
@@ -60,7 +60,12 @@ fetch("js/svg_paths.txt")
         document.getElementById("image-container").innerHTML = imageContainers;
         document.getElementById(`image-container-${currentImage}`).style.display = "block";
 
-        totalImages += 14
+        // totalImages += 14
+        totalImages += 6
+
+        // Update the progress bar
+        const progress = (currentImage / totalImages) * 100;
+        document.querySelector('.progress').style.width = `${progress}%`;
     });
 
 function showNextImage() {
@@ -74,7 +79,7 @@ function showNextImage() {
 
     // If we have reached the end, redirect to the completion page
     if (currentImage == totalImages) {
-        document.getElementById('trial-button').setAttribute("onclick", "window.location.href = 'completion.html';")
+        document.getElementById('trial-button').setAttribute("onclick", "window.location.href = 'trans.html';")
     }
 
     // Show the next image container
@@ -100,7 +105,7 @@ function showLastImage() {
 
     // If we have reached the end, redirect to the completion page
     if (currentImage == totalImages) {
-        document.getElementById('trial-button').setAttribute("onclick", "window.location.href = 'completion.html';")
+        document.getElementById('trial-button').setAttribute("onclick", "window.location.href = 'trans.html';")
     }
 
     // Show the next image container

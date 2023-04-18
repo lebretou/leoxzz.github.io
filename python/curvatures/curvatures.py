@@ -4,7 +4,7 @@ import random
 from math import sin, cos
 from svgwrite import cm, mm
 
-RATIOS = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]
+RATIOS = [0.25, 0.35, 0.45, 0.55, 0.65, 0.75]
 BASE_CURVE = 1
 
 
@@ -44,7 +44,7 @@ def curves(name, ratio, index):
     # marker_b = img.text('B', insert=(11.8 * 37.6, 5.8 * 37.6))
 
     # add labels 
-    # img.add(img.text('C'+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
+    img.add(img.text('C'+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
     
 
     # img.add(marker_a)
@@ -65,9 +65,9 @@ def calculate_control(start, end, curvature):
 
 
 if __name__ == '__main__':
-    # index = 0
+    index = 0
 
-    # for ratio in RATIOS:
-    #     curves(('curvatures_' + str(index) + '.svg'), ratio, index)
-    #     index += 1
-    curves("instruction.svg", 0.5, 0)
+    for ratio in RATIOS:
+        curves(('curvatures_' + str(index) + '.svg'), ratio, index)
+        index += 1
+    # curves("instruction.svg", 0.5, 0)

@@ -11,7 +11,7 @@ fetch("js/example_paths.txt")
         imageNames = data.trim().split("\n");
         shuffleArray(imageNames)
         totalImages = imageNames.length;
-        random_indices = Math.floor(Math.random() * 8)
+        random_indices = Math.floor(Math.random() * 7)
 
         // Generate the HTML code for each image container
         let imageContainers = "";

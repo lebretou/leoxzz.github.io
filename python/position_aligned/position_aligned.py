@@ -3,7 +3,7 @@ import math
 import random
 from svgwrite import cm, mm
 
-RATIOS = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]
+RATIOS = [0.25, 0.35, 0.45, 0.55, 0.65, 0.75]
 START_A = 3.5
 START_B = 6.5
 
@@ -40,7 +40,7 @@ def positions(name, ratio, index):
     # img.add(img.text('B', insert=(6.5 * 37.6, (4 + random_offset_a) * 37.6)))
 
     # add labels 
-    # img.add(img.text("PA"+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
+    img.add(img.text("PA"+str(index), insert=(0.1*cm, 0.5*cm), fill='lightgray'))
 
     img.save()
 
@@ -48,10 +48,10 @@ def positions(name, ratio, index):
 
 
 if __name__ == '__main__':
-    # index = 0
+    index = 0
 
-    # for ratio in RATIOS:
-    #     positions(('position_aligned_' + str(index) + '.svg'), ratio, index)
-    #     index += 1
+    for ratio in RATIOS:
+        positions(('position_aligned_' + str(index) + '.svg'), ratio, index)
+        index += 1
 
-    positions('instruction.svg', 0.5, 0)
+    # positions('instruction.svg', 0.5, 0)
