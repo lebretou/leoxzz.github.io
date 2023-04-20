@@ -46,7 +46,7 @@ function showNextImage() {
 
     // If we have reached the end, redirect to the completion page
     if (currentImage == totalImages) {
-        document.getElementById('trial-button').setAttribute("onclick", "window.location.href = 'trans.html';")
+        document.getElementById('trial-button').setAttribute("onclick", "window.location.href = 'index.html';")
     }
 
     // Show the next image container
@@ -72,7 +72,7 @@ function showLastImage() {
 
     // If we have reached the end, redirect to the completion page
     if (currentImage == totalImages) {
-        document.getElementById('trial-button').setAttribute("onclick", "window.location.href = 'trans.html';")
+        document.getElementById('trial-button').setAttribute("onclick", "window.location.href = 'index.html';")
     }
 
     // Show the next image container

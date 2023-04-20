@@ -1,82 +1,24 @@
-<!-- Created by Zhongzheng Xu 11/2022 -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <script src="https://d3js.org/d3.v4.js"></script>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transition</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <div style="margin: 1rem 20% 1rem; font-family:Arial, Helvetica, sans-serif;">
+    <div style="margin: 1rem 20% 1rem; font-family:Arial, Helvetica, sans-serif; text-align: center;">
         <img src="./img/Emory-University-Logo.png"
             style="display: block; margin-left: auto; margin-right:auto; width: 30%" alt="">
-        <h1 style="text-align: center;">Study Instructions</h1>
-
-        <hr>
-        <h2> Encoding Types</h2>
-        <p>
-            In our study, we encoded numerical value pairs using various visual/tactile elements. The below sections
-            will explain how values are <b>encoded and represented</b> in these encodings.
-            Note that "visual" and "tactile" present same types of encodings on different mediums. It is important for
-            you to understand the relationship between numerical value and encoding types.
-        </p>
-
-        <h3>Lines</h3>
-        <div class="example-svg">
-            <svg baseProfile="full" height="6cm" version="1.1" width="12cm" xmlns="http://www.w3.org/2000/svg"
-                xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <defs />
-                <line stroke="black" stroke-width="4" x1="3cm" x2="3cm" y1="1.9cm" y2="4.1cm" />
-                <line stroke="black" stroke-width="4" x1="9cm" x2="9cm" y1="0.7999999999999998cm" y2="5.2cm" /></svg>
-        </div>
-        <hr>
-
-        <h3>Areas</h3>
-        <div class="example-svg">
-            <svg baseProfile="full" height="6cm" version="1.1" width="12cm" xmlns="http://www.w3.org/2000/svg"
-                xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <defs />
-                <pattern height="10" id="pattern" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse"
-                    width="10">
-                    <line stroke="black" stroke-width="3" x1="0" x2="0" y1="0" y2="10" />
-                </pattern>
-                <circle cx="9cm" cy="3cm" fill="url(#pattern)" r="2.8cm" stroke="black" stroke-width="3" />
-                <circle cx="3cm" cy="3cm" fill="url(#pattern)" r="1.9798989873223332cm" stroke="black"
-                    stroke-width="3" />
-            </svg>
-        </div>
-        <hr>
-
-
-        <h3>Curves</h3>
-        <div class="example-svg">
-            <svg baseProfile="full" height="6cm" version="1.1" width="12cm" xmlns="http://www.w3.org/2000/svg"
-                xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <defs />
-                <path
-                    d="M 56.400000000000006,112.80000000000001 C 112.80000000000001,56.400000000000006 112.80000000000001,56.400000000000006 169.20000000000002,112.80000000000001"
-                    fill="none" stroke="black" stroke-width="3"
-                    transform="rotate(41,112.80000000000001,112.80000000000001)" />
-                <path d="M 282.0,112.80000000000001 C 338.4,0.0 338.4,0.0 394.8,112.80000000000001" fill="none"
-                    stroke="black" stroke-width="3" transform="rotate(-15,338.40000000000003,112.80000000000001)" />
-                </svg>
-        </div>
-        <hr>
-        <div style="margin-bottom: 5%;">
-            <b>Click "Proceed" to see more explanations on encoding types.</b>
-            <div style="text-align: center; margin-top: 5%; margin-bottom: 5%;">
-                <nav>
-                    <a id="survey-link" href="encoding.html">
-                        <button>Proceed</button>
-                    </a>
-                </nav>
-            </div>
-        </div>
-
-
+        <h2>Allow Study Administrator to select the below options for you. Before proceeding to the official trials, please inform study administrator about any questions you have.
+            This will be the final page before the actual study. Good luck!</h2>
+        <button onclick="window.location.href = 'trans.html';" style="margin-top: 50px;">Visual Stimuli</button>
+        <button onclick="window.location.href = 'practice.html';" style="margin-top: 50px;">Visual Condition Practice Trials</button>
+        <button onclick="window.location.href = 'trial.html';" style="margin-top: 50px;">Visual Condition Trials</button>
+        <button onclick="window.location.href = 'table.html';" style="margin-top: 50px;">Tabular Condition Trials</button>
+        <button onclick="window.location.href = 'table_practice.html';" style="margin-top: 50px;">Tabular Condition Practice Trials</button>
     </div>
 </body>
