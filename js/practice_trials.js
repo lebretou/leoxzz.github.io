@@ -23,22 +23,22 @@ fetch("js/example_paths.txt")
                            </div>`;
             j += 1;
 
-            // randomly insert tables into the trials
-            if (random_indices == i) {
-                imageContainers += `
-                <div id="image-container-${j + 1}" class="image-container">
-                    <table style="width:12cm;height:6cm;">
-                        <tr>
-                            <th scope="col" style="font-weight: bold;">${table_nums[0]}</th>
-                            <th scope="col" style="font-weight: bold;">${table_nums[1]}</th>
-                        </tr>
+            // // randomly insert tables into the trials
+            // if (random_indices == i) {
+            //     imageContainers += `
+            //     <div id="image-container-${j + 1}" class="image-container">
+            //         <table style="width:12cm;height:6cm;">
+            //             <tr>
+            //                 <th scope="col" style="font-weight: bold;">${table_nums[0]}</th>
+            //                 <th scope="col" style="font-weight: bold;">${table_nums[1]}</th>
+            //             </tr>
 
-                    </table>
-                </div>
-                `;
-                table_i += 1
-                j += 1
-            }
+            //         </table>
+            //     </div>
+            //     `;
+            //     table_i += 1
+            //     j += 1
+            // }
         }
 
 
@@ -46,7 +46,6 @@ fetch("js/example_paths.txt")
         document.getElementById("image-container").innerHTML = imageContainers;
         document.getElementById(`image-container-${currentImage}`).style.display = "block";
 
-        totalImages += 1
     });
 
 function showNextImage() {
