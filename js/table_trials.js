@@ -1,6 +1,6 @@
 let totalImages = 6;
 let currentImage = 1;
-let table_nums = [[52.5, 95.4], [33.9, 75.4], [24.2, 6.1], [36.7, 56.4], [67.3, 89.7], [53.0, 18.6]]
+let table_nums = [[51.4, 93.5], [28.4, 12.8], [45.2, 11.3], [35.8, 55.0], [45.5, 60.7], [34.8, 12.2]]
 let ordering = [3, 2, 0, 4, 6, 5, 1]
 
 // const sortedList = table_nums.sort((a, b) => {
