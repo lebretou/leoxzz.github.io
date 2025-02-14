@@ -158,3 +158,31 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// Theme switcher
+const themeToggle = document.getElementById('theme-toggle');
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+// Check for saved theme preference, otherwise use system preference
+const currentTheme = localStorage.getItem('theme') || 
+                    (prefersDarkScheme.matches ? 'dark' : 'light');
+
+// Set initial theme
+document.documentElement.setAttribute('data-theme', currentTheme);
+themeToggle.innerHTML = currentTheme === 'dark' ? 
+                        '<ion-icon name="sunny-outline"></ion-icon>' : 
+                        '<ion-icon name="moon-outline"></ion-icon>';
+
+// Theme toggle click handler
+themeToggle.addEventListener('click', () => {
+  const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 
+                   'light' : 'dark';
+  
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  
+  // Update toggle button icon
+  themeToggle.innerHTML = newTheme === 'dark' ? 
+                          '<ion-icon name="sunny-outline"></ion-icon>' : 
+                          '<ion-icon name="moon-outline"></ion-icon>';
+});
