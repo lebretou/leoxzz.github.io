@@ -1015,8 +1015,11 @@ main {
 
 .project-item > a:hover img { transform: scale(1.1); }
 
-.project-title,
-.project-category { margin-left: 10px; }
+/* .project-title,
+.project-category,
+.project-venue {
+  margin-left: 10px;
+} */
 
 .project-title {
   color: var(--white-2);
@@ -1024,12 +1027,25 @@ main {
   font-weight: var(--fw-400);
   text-transform: capitalize;
   line-height: 1.3;
+  margin-bottom: 5px;
 }
 
 .project-category {
   color: var(--light-gray-70);
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
+  margin-bottom: 5px;
+}
+
+.project-venue {
+  color: var(--orange-yellow-crayola);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-400);
+  font-style: italic;
+  background-color: var(--eerie-black-1);
+  padding-bottom: 5px;
+  border-radius: 4px;
+  display: inline-block;
 }
 
 

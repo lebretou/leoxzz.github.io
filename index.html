@@ -169,14 +169,13 @@
 
         <section class="about-text">
           <p>
-            I am a first-year computer science master's student at <a href="https://www.brown.edu/" class="custom-link">Brown University</a>. In my senior year at <a href="https://www.emory.edu/home/index.html" class="custom-link">Emory University</a>,
-            I worked with <a href="https://emilywall.github.io/" class="custom-link">Dr. Emily Wall</a>, who leads Emory <a href="https://cav-lab.github.io/" class="custom-link">CAV Lab</a>. My research interests are data visualization and human-computer interaction. 
+            I am a second-year computer science master's student at <a href="https://www.brown.edu/" class="custom-link">Brown University</a>. 
           </p>
 
           <p>
-            In my most recent project, I replicated Cleveland and McGill's graphical perception study and expanded their method to the
-            tactile modality. We evaluated elementary data encoding types on tactile paper, which is a commonly-used medium for 
-            people who are blind or with low vision. 
+            Currently, I am working under Dr. Jeff Huang at Brown HCI Lab. We are exploring the effect of visualizations on people's self-reflection over their personal text data.
+            In my senior year at <a href="https://www.emory.edu/home/index.html" class="custom-link">Emory University</a>,
+            I worked with <a href="https://emilywall.github.io/" class="custom-link">Dr. Emily Wall</a>, who leads Emory <a href="https://cav-lab.github.io/" class="custom-link">CAV Lab</a>. My research interests are data visualization, human-computer interaction, as well as how we might incorporate LLM into data visualization pipelines. 
           </p>
           <p>
             To pronounce my name, think of it like "John Jane Shoe". In my free time, I like being a barista and photographer. 
@@ -205,7 +204,7 @@
                 <h4 class="h4 service-item-title">Masters Program</h4>
 
                 <p class="service-item-text">
-                  First-year CS student @ Brown.
+                  Second-year CS student @ Brown.
                 </p>
               </div>
 
@@ -226,6 +225,20 @@
                 </p>
               </div>
 
+            </li>
+
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-quote.svg" alt="design icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Applying to Ph.D.</h4>
+
+                <p class="service-item-text">
+                  I am applying to Ph.D. programs in the field of HCI and data visualization.
+                </p>
+              </div>
             </li>
 
           </ul>
@@ -325,7 +338,7 @@
               <span>2023 — 2025</span>
 
               <p class="timeline-text">
-                I am currently a first-year master's student at Brown University studying computer science. 
+                I am currently a second-year master's student at Brown University studying computer science. 
               </p>
 
             </li>
@@ -342,7 +355,7 @@
                 
               </p>
 
-            </li>
+            <!-- </li>
 
             <li class="timeline-item">
 
@@ -354,7 +367,7 @@
                 Woodland is a small city near Sacramento, California. I graduated as a top 1% student. As an athelete, I played soccer and wrestling. 
               </p>
 
-            </li>
+            </li> -->
 
           </ol>
 
@@ -390,6 +403,14 @@
               <button data-filter-btn>Data Visualization</button>
             </li>
 
+            <li class="filter-item">
+              <button data-filter-btn>LLM</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Accessibility</button>
+            </li>
+
 
           </ul>
 
@@ -415,28 +436,39 @@
                 <button data-select-item>Data Visualization</button>
               </li>
 
-
+              <li class="select-item">
+                <button data-select-item>LLM</button>
+              </li>
             </ul>
 
           </div>
 
           <ul class="project-list">
 
-            <li class="project-item  active" data-filter-item data-category="Data Visualization">
+            <li class="project-item active" data-filter-item data-category="Data Visualization, Accessibility">
               <a href="https://ieeexplore.ieee.org/abstract/document/10360913">
-
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
                   <img src="./assets/images/vysical.png" alt="finance" loading="lazy">
                 </figure>
-
-                <h3 class="project-title">Let's Get Vysical</h3>
-
-                <p class="project-category">Data Visualization</p>
-
+                <h3 class="project-title">Let's Get Vysical: Perceptual Accuracy in Visual & Tactile Encodings</h3>
+                <p class="project-category">Data Visualization, Accessibility</p>
+                <p class="project-venue">IEEE VIS 2023 Short Paper</p>
+              </a>
+            </li>
+            <li class="project-item active" data-filter-item data-category="Data Visualization, LLM">
+              <a href="https://arxiv.org/abs/2404.19097">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/LLMSVG.png" alt="project" loading="lazy">
+                </figure>
+                <h3 class="project-title">Exploring the Capability of LLMs in Performing Low-Level Visual Analytic Tasks on SVG Data Visualizations</h3>
+                <p class="project-category">Data Visualization, LLM</p>
+                <p class="project-venue">IEEE VIS 2024 Short Paper</p>
               </a>
             </li>
 
