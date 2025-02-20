@@ -161,28 +161,47 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
 // Theme switcher
 const themeToggle = document.getElementById('theme-toggle');
-const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
-// Check for saved theme preference, otherwise use system preference
-const currentTheme = localStorage.getItem('theme') || 
-                    (prefersDarkScheme.matches ? 'dark' : 'light');
+// Function to check if it's daytime (between 6 AM and 6 PM)
+const isDaytime = () => {
+  const hour = new Date().getHours();
+  return hour >= 6 && hour < 18;
+};
 
-// Set initial theme
-document.documentElement.setAttribute('data-theme', currentTheme);
-themeToggle.innerHTML = currentTheme === 'dark' ? 
-                        '<ion-icon name="sunny-outline"></ion-icon>' : 
-                        '<ion-icon name="moon-outline"></ion-icon>';
+// Function to set theme
+const setTheme = (theme) => {
+  document.documentElement.setAttribute('data-theme', theme);
+  themeToggle.innerHTML = theme === 'dark' ? 
+                          '<ion-icon name="sunny-outline"></ion-icon>' : 
+                          '<ion-icon name="moon-outline"></ion-icon>';
+  localStorage.setItem('theme', theme);
+};
+
+// Function to update theme based on time
+const updateThemeBasedOnTime = () => {
+  // Only update if there's no user preference stored
+  if (!localStorage.getItem('userThemePreference')) {
+    setTheme(isDaytime() ? 'light' : 'dark');
+  }
+};
+
+// Initial theme setup
+const savedUserPreference = localStorage.getItem('userThemePreference');
+if (savedUserPreference) {
+  setTheme(savedUserPreference);
+} else {
+  updateThemeBasedOnTime();
+}
+
+// Update theme every minute
+setInterval(updateThemeBasedOnTime, 60000);
 
 // Theme toggle click handler
 themeToggle.addEventListener('click', () => {
   const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 
                    'light' : 'dark';
   
-  document.documentElement.setAttribute('data-theme', newTheme);
-  localStorage.setItem('theme', newTheme);
-  
-  // Update toggle button icon
-  themeToggle.innerHTML = newTheme === 'dark' ? 
-                          '<ion-icon name="sunny-outline"></ion-icon>' : 
-                          '<ion-icon name="moon-outline"></ion-icon>';
+  // Store user preference
+  localStorage.setItem('userThemePreference', newTheme);
+  setTheme(newTheme);
 });
